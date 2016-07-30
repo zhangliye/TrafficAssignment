@@ -6,7 +6,7 @@ Traffic network design algorithm supported.
 
 Document will come soon.
 
-
+-----------------------------------------------------------------------
 This package is developed by
-Dr. Liye Zhang
+Dr. Liye Zhang 
 Institute of High Performance Computing, A*Star, Singapore
