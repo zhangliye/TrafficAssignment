@@ -1,5 +1,15 @@
+#############################################################################
+#  Copyright 2016, Liye Zhang and contributors
+#  This Source Code Form is subject to the terms of the Mozilla Public
+#  License, v. 2.0. If a copy of the MPL was not distributed with this
+#  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#############################################################################
 # Frank-Wolfe Methods
 # CFW and BFW in Mitradijieva and Lindberg (2013)
+# 
+#############################################################################
+
+
 
 # required packages: Graphs, Optim
 using LightGraphs, Optim

@@ -1,3 +1,9 @@
+#############################################################################
+#  Copyright 2016, Liye Zhang and contributors
+#  This Source Code Form is subject to the terms of the Mozilla Public
+#  License, v. 2.0. If a copy of the MPL was not distributed with this
+#  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#############################################################################
 # Network extended from the following
 # Sioux Falls network data
 # http://www.bgu.ac.il/~bargera/tntp/
@@ -10,6 +16,8 @@
 # Data format:
 # All traffic zone node start from 1:number_OD_zones
 # Suppose all node number start from 1 to `max_node_index`
+#############################################################################
+
 using Debug
 import Base.print
 

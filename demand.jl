@@ -1,16 +1,24 @@
+#############################################################################
+#  Copyright 2016, Liye Zhang and contributors
+#  This Source Code Form is subject to the terms of the Mozilla Public
+#  License, v. 2.0. If a copy of the MPL was not distributed with this
+#  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#############################################################################
+# Class for traffic demand management
+#
 # Network extended from the following
 # Sioux Falls network data
 # http://www.bgu.ac.il/~bargera/tntp/
-# 
+#
 # user type- 1 for "pv", 2 for 'ev', permision property of the link is as '1-4-6'
-
+#############################################################################
 
 # Link travel time = free flow time * ( 1 + B * (flow/capacity)^Power ).
 # Link generalized cost = Link travel time + toll_factor * toll + distance_factor * distance
 
-# traffic demand structure 
+# traffic demand structure
 type Demand
-    travel_demand::Array{Float64, 2}         # OD matrix 
+    travel_demand::Array{Float64, 2}         # OD matrix
     od_pairs::Array{Tuple{Int64, Int64}}     # [(2,3), (4,5), ...], grow automatically
                                              # used for map index - (o, d)
 
@@ -22,15 +30,15 @@ end
 read OD demand from trip file
 
 # Arguments
-* trip_file: full path of trip file 
+* trip_file: full path of trip file
 
-# Return: 
+# Return:
 """
 function Demand( trip_file )
     total_od_flow = 0
-    number_of_zones_trip = 0	    
+    number_of_zones_trip = 0
     user_type = ""
-    
+
     f = open( trip_file, "r" )
 
     while (line=readline(f)) != ""
@@ -49,13 +57,13 @@ function Demand( trip_file )
     @assert number_of_zones_trip > 0
     @assert total_od_flow > 0
     @assert user_type != ""
-    
-    # create traffic demand structure 
-    # 
-    travel_demand = zeros(number_of_zones_trip, number_of_zones_trip) 
+
+    # create traffic demand structure
+    #
+    travel_demand = zeros(number_of_zones_trip, number_of_zones_trip)
     # od_pairs = Array{Tuple{Int64, Int64}}(0)  # [(2,3), (4,5), ...], grow automatically
     od_pairs = Array{Tuple{Int64, Int64}}(0)
-    
+
     # fill the data
     while (line=readline(f)) != ""
         if contains(line, "Origin")
@@ -75,8 +83,7 @@ function Demand( trip_file )
             end
         end
     end
-    
+
     demand = Demand( travel_demand, od_pairs,total_od_flow,  user_type )
     return demand
 end
-
