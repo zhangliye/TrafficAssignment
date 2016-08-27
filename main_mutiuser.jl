@@ -11,13 +11,11 @@
 include("network.jl")
 include("demand.jl")
 include("frank_wolfe_multiuser.jl")
-using Debug
 using GraphPlot
 import Graphs
 
-
 function test()
-	base_dir = "H:\\NUS_DISK_64G\\python_code\\julia_code\\traffic_network_design\\data"
+	base_dir = splitdir( abspath( @__FILE__ ) )[1] * "\\data"
 	net_path = base_dir * "\\demo_net.csv"
 	trip_path1 = base_dir * "\\demo_trips_pv.csv"
 	trip_path2 = base_dir * "\\demo_trips_ev.csv"
