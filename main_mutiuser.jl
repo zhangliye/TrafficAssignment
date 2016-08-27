@@ -15,6 +15,7 @@ using Debug
 using GraphPlot
 import Graphs
 
+
 function test()
 	base_dir = "H:\\NUS_DISK_64G\\python_code\\julia_code\\traffic_network_design\\data"
 	net_path = base_dir * "\\demo_net.csv"

@@ -1,0 +1,11 @@
+<NUMBER OF ZONES> 2
+<TOTAL OD FLOW>  1
+<USER TYPE> 1
+<END OF METADATA>
+
+
+Origin 1 
+    2 :    2000;
+    
+Origin 2 
+    1 :    1000;

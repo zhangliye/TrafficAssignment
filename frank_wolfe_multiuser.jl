@@ -6,10 +6,8 @@
 #############################################################################
 # Frank-Wolfe Methods
 # CFW and BFW in Mitradijieva and Lindberg (2013)
-# 
+#
 #############################################################################
-
-
 
 # required packages: Graphs, Optim
 using LightGraphs, Optim

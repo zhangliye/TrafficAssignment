@@ -15,7 +15,8 @@ include( "frank_wolfe_multiuser.jl" )
 using GraphPlot
 import Graphs
 
-net_path = "D:\\liye_360syn\\syn_develop\\julia_code\\traffic_network_mt\\data\\case1_net.csv"
+base_dir = splitdir( abspath( @__FILE__ ) )[1]
+net_path = base_dir * "\\data\\case1_net.csv"
 
 net = Network( net_path )
 

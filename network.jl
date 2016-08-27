@@ -18,7 +18,6 @@
 # Suppose all node number start from 1 to `max_node_index`
 #############################################################################
 
-using Debug
 import Base.print
 
 # Traffic Assignment Data structure
