@@ -346,10 +346,10 @@ function add_one_side_super_line( net, from_node, to_node  )
   push!( net.X, 0 )
 end
 
-function print( net )
+function print_network( net )
   println("link, link_capacity, lane_capacity, free_flow_time, link_permission")
-  physical_links::Array{Tuple{Int64, Int64}}    # ( small_node, large_node ), every item for one physical lane
-  directions::Array{Int64}
+  # physical_links::Array{Tuple{Int64, Int64}}    # ( small_node, large_node ), every item for one physical lane
+  # directions::Array{Int64}
   for i in 1:length( net.physical_links )
     k = net.directions[i]==1 ? net.physical_links[i] : (net.physical_links[i][2], net.physical_links[i][1])
     println(k, ": ", net.capacity[i], ", ", net.lane_capacity[i], ", ", net.free_flow_time[i], ", ", net.link_permission[i])
