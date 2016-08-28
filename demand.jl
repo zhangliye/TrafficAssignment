@@ -23,7 +23,7 @@ type Demand
                                              # used for map index - (o, d)
 
     total_od_flow::Float64                   # sum of all od pairs ?, not used in this algorithm
-    user_type::ASCIIString                   # user type name, such as "ev"
+    user_type::String                   # user type name, such as "ev"
 end
 
 """

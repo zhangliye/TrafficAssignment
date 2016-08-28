@@ -23,21 +23,21 @@ function test()
 
 	network = Network( net_path )
 	##########################################################
-    # create network
-    networks = create_networks( network )
+  # create network
+  networks = create_networks( network )
 
-    network1 = networks[1]   # PV
-    network2 = networks[2]   # EV
+  network1 = networks[1]   # PV
+  network2 = networks[2]   # EV
 
-    # test network
-    #set_link_ev( network1, 4, 5 )
-    #set_link_pv( network1, 4, 5 )
-    set_link_ev( network1, 4, 5 )
-    reverse_link( network2, 4, 5 )
-    reverse_link( network1, 4, 5 )
+  # test network
+  #set_link_ev( network1, 4, 5 )
+  #set_link_pv( network1, 4, 5 )
+  set_link_ev( network1, 4, 5 )
+  reverse_link( network2, 4, 5 )
+  reverse_link( network1, 4, 5 )
 
-    # prepare demand
-    demand1 = Demand( trip_path1 )
+  # prepare demand
+  demand1 = Demand( trip_path1 )
 	demand2 = Demand( trip_path2 )
 	demands = Dict{Any, Any}( "1"=> demand1, "2" => demand2 )
 
@@ -54,10 +54,10 @@ function test()
 
 	println("\nTraffic flow of several links: ")
 	from_nodes = start_nodes( net )
-    to_nodes = end_nodes( net )
-    for i in 1:length( from_nodes )
-      println(from_nodes[i], "--", to_nodes[i], ": ", xk[i] )
-    end
+  to_nodes = end_nodes( net )
+  for i in 1:length( from_nodes )
+    println(from_nodes[i], "--", to_nodes[i], ": ", xk[i] )
+  end
 
 	println("finished")
 end

@@ -226,7 +226,7 @@ Assign OD matrix to route traffic
 
 # Arguments
 * `network`: TA_Data object
-* `od_demands`: od_demands::Dict{ASCIIString, Demand}
+* `od_demands`: od_demands::Dict{String, Demand}
 * `max_iter_no`: max iteration number
 * `tol`: convergence bound
 

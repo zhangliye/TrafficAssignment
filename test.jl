@@ -1,7 +1,8 @@
 # this is just to test the functions
 #
-function test()
-  @show splitdir( abspath( @__FILE__ ) )[1] * "\\data\\"
+type Dog
+  weight::Real
+  name::String
 end
 
-test()
+dog = Dog(23.4, "Tome")

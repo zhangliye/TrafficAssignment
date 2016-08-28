@@ -17,12 +17,10 @@
 # All traffic zone node start from 1:number_OD_zones
 # Suppose all node number start from 1 to `max_node_index`
 #############################################################################
-
 import Base.print
 
 # Traffic Assignment Data structure
 type Network
-
     ############# data from file ############################
     # data from trip file head
     #
@@ -75,47 +73,44 @@ type Network
     # default class construction function
     #
     function Network()
-		self = new()
+		    self = new()
 
         self.number_of_zones = 0    # number of the OD nodes, 1:number_OD_zones, n, for OD matrix
         self.number_of_nodes = 0
-		self.first_thru_node = 0
+		    self.first_thru_node = 0
 
-		self.physical_links = Array{Tuple{Int64, Int64}}(0)    # ( small_node, large_node ), every item for one physical lane
+		    self.physical_links = Array{Tuple{Int64, Int64}}(0)    # ( small_node, large_node ), every item for one physical lane
         self.directions  = Array{Int64}(0)                     # 1, from small to larger node; else 0
         self.lane_indicator = Array{Int64}(0)
 
-		# virtual and real lanes
-		self.capacity = Array{Float64}(0)
-		self.link_length = Array{Float64}(0)         # only used for calculating toll and distance cost
-		self.free_flow_time = Array{Float64}(0)
-		self.physical_free_flow_time = Array{Float64}(0)
-		self.B = Array{Float64}(0)
-		self.power =  Array{Float64}(0)
-		self.speed_limit = Array{Float64}(0)
-		self.toll = Array{Float64}(0)
-		self.link_type = Array{Float64}(0)           # for road type
-		self.link_permission = Array{AbstractString}(0)     # 11, user type
+    		# virtual and real lanes
+    		self.capacity = Array{Float64}(0)
+    		self.link_length = Array{Float64}(0)         # only used for calculating toll and distance cost
+    		self.free_flow_time = Array{Float64}(0)
+    		self.physical_free_flow_time = Array{Float64}(0)
+    		self.B = Array{Float64}(0)
+    		self.power =  Array{Float64}(0)
+    		self.speed_limit = Array{Float64}(0)
+    		self.toll = Array{Float64}(0)
+    		self.link_type = Array{Float64}(0)           # for road type
+    		self.link_permission = Array{AbstractString}(0)     # 11, user type
         self.lane_num = Array{Int64}(0)              # 12 for road type
         self.lane_capacity = Array{Float64}(0)       # 13 for road type
         self.X = Array{Float64}(0)
 
-	    ###############################################
-	    # other data
-	    #
-	    self.toll_factor = 0.         # convert toll to additional general cost, 0 default not consider
-	    self.distance_factor = 0.     # convert distance to additional general cost, 0 default not consider
-	    self.best_objective = 0.
+  	    ###############################################
+  	    # other data
+  	    #
+  	    self.toll_factor = 0.         # convert toll to additional general cost, 0 default not consider
+  	    self.distance_factor = 0.     # convert distance to additional general cost, 0 default not consider
+  	    self.best_objective = 0.
+  	    self.network_name = "test_network"
 
-	    self.network_name = "test_network"
-
-	    return self
-    end
-
-end
+  	    return self
+    end #function Network()
+end #type Network
 
 ###################################################################
-
 """
 count sub strings in string array
 
@@ -149,7 +144,6 @@ end
   user_type: "ae-ce-ae"
   Return: true for valid, else is false
 """
-
 function is_user_type_valid( user_type )
 type_names = split( user_type, "-")
     if length( type_names ) < 1
@@ -180,7 +174,7 @@ end
 	* `network_file`: network file full path
 	* `trip_file`: trip file full path
 
-	# return: (TA_Data, od_demands), od_demands::Dict{ASCIIString, Demand}
+	# return: (TA_Data, od_demands), od_demands::Dict{String, Demand}
 
 	# Examples
     # network_file.txt
@@ -284,9 +278,7 @@ function Network( network_data_file, network_name="traffic network" )
             idx = idx + 1
         end
     end
-
     return network
-
 end # end of load_network function
 
 function addPhysicalLinkMark(network, start_node, end_node)
